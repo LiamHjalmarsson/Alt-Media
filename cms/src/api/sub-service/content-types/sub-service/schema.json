@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_services",
+  "info": {
+    "singularName": "sub-service",
+    "pluralName": "sub-services",
+    "displayName": "Sub service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    }
+  }
+}

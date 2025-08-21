@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "description": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "icon": {
+      "type": "component",
+      "component": "ui.icon",
+      "repeatable": false
+    },
+    "sub_services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sub-service.sub-service"
+    }
+  }
+}

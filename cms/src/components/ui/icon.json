@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_ui_icons",
+  "info": {
+    "displayName": "Icon",
+    "icon": "alien"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "has_image": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}
