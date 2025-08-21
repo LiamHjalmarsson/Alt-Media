@@ -110,8 +110,19 @@ export interface GlobalNavigaion extends Struct.ComponentSchema {
     displayName: 'Navigaion';
   };
   attributes: {
-    links: Schema.Attribute.Component<'ui.button', true>;
-    logo: Schema.Attribute.Component<'ui.logo', false>;
+    links: Schema.Attribute.Component<'global.navigation-item', true>;
+    logo: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
+export interface GlobalNavigationItem extends Struct.ComponentSchema {
+  collectionName: 'components_global_navigation_items';
+  info: {
+    displayName: 'Navigation Item';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -208,6 +219,7 @@ declare module '@strapi/strapi' {
       'global.footer': GlobalFooter;
       'global.footer-column': GlobalFooterColumn;
       'global.navigaion': GlobalNavigaion;
+      'global.navigation-item': GlobalNavigationItem;
       'seo.seo': SeoSeo;
       'ui.button': UiButton;
       'ui.card': UiCard;

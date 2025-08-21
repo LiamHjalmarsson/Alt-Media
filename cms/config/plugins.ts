@@ -14,7 +14,9 @@ export default ({ env }) => ({
 				uploadStream: {
 					folder: env("CLOUDINARY_FOLDER", "assets"),
 				},
-				delete: {},
+				delete: {
+					folder: env("CLOUDINARY_FOLDER", "assets"),
+				},
 			},
 		},
 	},

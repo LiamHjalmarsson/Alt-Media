@@ -7,13 +7,16 @@
   "attributes": {
     "links": {
       "type": "component",
-      "component": "ui.button",
+      "component": "global.navigation-item",
       "repeatable": true
     },
     "logo": {
-      "type": "component",
-      "component": "ui.logo",
-      "repeatable": false
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   },
   "config": {}

@@ -18,6 +18,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }
