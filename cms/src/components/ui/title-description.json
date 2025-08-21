@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_ui_title_descriptions",
+  "info": {
+    "displayName": "Title description"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

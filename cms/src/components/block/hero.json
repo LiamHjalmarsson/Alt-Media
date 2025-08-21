@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_block_heroes",
+  "info": {
+    "displayName": "Hero"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "colored_title": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "buttons": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

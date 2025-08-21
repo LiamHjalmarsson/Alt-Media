@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_global_navigaions",
+  "info": {
+    "displayName": "Navigaion"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    },
+    "logo": {
+      "type": "component",
+      "component": "ui.logo",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_global_footer_columns",
+  "info": {
+    "displayName": "Footer column"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

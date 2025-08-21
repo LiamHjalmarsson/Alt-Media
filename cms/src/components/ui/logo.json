@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_ui_logos",
+  "info": {
+    "displayName": "Logo",
+    "icon": "eye"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "show_logo": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_block_lists",
+  "info": {
+    "displayName": "List"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": true
+    },
+    "items": {
+      "type": "component",
+      "component": "ui.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

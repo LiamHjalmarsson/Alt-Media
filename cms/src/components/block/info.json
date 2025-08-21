@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_block_infos",
+  "info": {
+    "displayName": "Info"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "align_content": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right",
+        "center"
+      ]
+    },
+    "button": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

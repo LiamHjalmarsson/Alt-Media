@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ui_cards",
+  "info": {
+    "displayName": "Card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "component",
+      "component": "ui.icon",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

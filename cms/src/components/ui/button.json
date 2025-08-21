@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_ui_buttons",
+  "info": {
+    "displayName": "Button"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "button",
+        "submit",
+        "reset"
+      ]
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "ternary",
+        "ghost"
+      ]
+    }
+  },
+  "config": {}
+}
