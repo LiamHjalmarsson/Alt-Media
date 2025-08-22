@@ -1,7 +1,7 @@
 import type { Strapi5ResponseMany, Strapi5ResponseSingle } from "@nuxtjs/strapi";
 import type { Project } from "~/types/collections/projects";
 
-export const useProjectsStore = defineStore("projects", () => {
+export const useProjectStore = defineStore("projects", () => {
 	const projects = ref<Project[]>([]);
 
 	const currentProject = ref<Project>();

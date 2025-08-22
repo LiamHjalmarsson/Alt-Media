@@ -1,7 +1,7 @@
 import type { Strapi5ResponseMany, Strapi5ResponseSingle } from "@nuxtjs/strapi";
 import type { Article } from "~/types/collections/articles";
 
-export const useArticlesStore = defineStore("articles", () => {
+export const useArticleStore = defineStore("articles", () => {
 	const articles = ref<Article[]>([]);
 
 	const currentArticle = ref<Article>();
