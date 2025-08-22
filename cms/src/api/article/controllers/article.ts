@@ -48,5 +48,27 @@ export default factories.createCoreController("api::article.article", ({ strapi 
 
 		return this.transformResponse(sanitizedEntity);
 	},
+
+	async find(ctx) {
+		const entity = await strapi.db.query("api::article.article").findMany({
+			select: ["id", "title", "slug", "description", "date"],
+			populate: {
+				cover: {
+					select: ["formats", "name", "width", "height", "url", "provider"],
+				},
+				services: {
+					select: ["title", "slug"],
+				},
+			},
+		});
+
+		if (!entity) {
+			return ctx.notFound("Articles not found");
+		}
+
+		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+
+		return this.transformResponse(sanitizedEntity);
+	},
 }));
 
