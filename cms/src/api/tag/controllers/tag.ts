@@ -12,6 +12,10 @@ export default factories.createCoreController("api::tag.tag", ({ strapi }) => ({
 			where: { slug: id },
 		});
 
+		if (!entity) {
+			return ctx.notFound("Tag not found");
+		}
+
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
 		return this.transformResponse(sanitizedEntity);

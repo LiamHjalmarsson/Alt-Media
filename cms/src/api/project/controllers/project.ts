@@ -12,6 +12,10 @@ export default factories.createCoreController("api::project.project", ({ strapi 
 			where: { slug: id },
 		});
 
+		if (!entity) {
+			return ctx.notFound("Project not found");
+		}
+
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
 		return this.transformResponse(sanitizedEntity);

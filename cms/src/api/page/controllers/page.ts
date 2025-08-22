@@ -12,6 +12,10 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 			where: { slug: id },
 		});
 
+		if (!entity) {
+			return ctx.notFound("Page not found");
+		}
+
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
 		return this.transformResponse(sanitizedEntity);

@@ -12,6 +12,10 @@ export default factories.createCoreController("api::service.service", ({ strapi 
 			where: { slug: id },
 		});
 
+		if (!entity) {
+			return ctx.notFound("Service not found");
+		}
+
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
 		return this.transformResponse(sanitizedEntity);

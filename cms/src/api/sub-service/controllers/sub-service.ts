@@ -12,6 +12,10 @@ export default factories.createCoreController("api::sub-service.sub-service", ({
 			where: { slug: id },
 		});
 
+		if (!entity) {
+			return ctx.notFound("Sub service not found");
+		}
+
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 
 		return this.transformResponse(sanitizedEntity);
