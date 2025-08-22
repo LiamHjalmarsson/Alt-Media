@@ -94,7 +94,7 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 							populate: {
 								select: ["__component", "id", "title"],
 								articles: {
-									select: ["title", "slug", "description"],
+									select: ["title", "slug", "description", "date"],
 									populate: {
 										cover: {
 											select: ["formats", "name", "width", "height", "url", "provider"],

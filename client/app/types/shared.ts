@@ -33,3 +33,7 @@ export type Variant =
 	| "ghost";
 
 export type ButtonType = "button" | "submit" | "reset";
+
+export type Size = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+
+export type Theme = "dark" | "light";

@@ -45,8 +45,9 @@
 	--color-dark: #2a2c2c;
 	--color-darker-gray: #4d5151;
 	--color-dark-gray: #6a706f;
-	--color-light-gray: #aeb2b1;
-	--color-light: #f5f6f6;
+	--color-light-gray: #d6d8d7;
+	--color-dark-light: #f4f5f5;
+	--color-light: #f9fafa;
 
 	/* Spacing */
 	--spacing-2xs: 0.25rem;

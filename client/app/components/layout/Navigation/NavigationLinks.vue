@@ -2,8 +2,6 @@
 const globalStore = useGlobalStore();
 
 const { header } = storeToRefs(globalStore);
-
-console.log(header.value);
 </script>
 
 <template>

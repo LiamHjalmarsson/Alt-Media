@@ -11,3 +11,12 @@ export interface Article {
 	cover: Image;
 	services: Service[];
 }
+
+export interface FeaturedArticle {
+	id: number;
+	title: string;
+	slug: string;
+	description: string;
+	date: Date;
+	cover: Image;
+}
