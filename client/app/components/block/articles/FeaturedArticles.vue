@@ -14,9 +14,9 @@ defineProps<{ block: FeaturedArticleBlock }>();
 				</ButtonLink>
 			</div>
 
-			<div class="flex">
+			<Grid class="md:grid-cols-3">
 				<ArticleCard v-for="(article, index) in block.articles" :key="article.id + index" :article="article" />
-			</div>
+			</Grid>
 		</Container>
 	</Section>
 </template>

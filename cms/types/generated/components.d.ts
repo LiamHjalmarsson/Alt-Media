@@ -199,6 +199,17 @@ export interface UiIcon extends Struct.ComponentSchema {
   };
 }
 
+export interface UiLink extends Struct.ComponentSchema {
+  collectionName: 'components_ui_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface UiLogo extends Struct.ComponentSchema {
   collectionName: 'components_ui_logos';
   info: {
@@ -243,6 +254,7 @@ declare module '@strapi/strapi' {
       'ui.button': UiButton;
       'ui.card': UiCard;
       'ui.icon': UiIcon;
+      'ui.link': UiLink;
       'ui.logo': UiLogo;
       'ui.title-description': UiTitleDescription;
     }
