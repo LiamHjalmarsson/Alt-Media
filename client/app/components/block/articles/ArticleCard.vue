@@ -34,7 +34,7 @@ const slug = computed(() => `/articles/${article.slug}`);
 					<span v-if="article.date">{{ article.date }}</span>
 				</div>
 
-				<ButtonLink :to="`/articles/${article.slug}`" variant="ghost" class="text-sm"> Läs mer </ButtonLink>
+				<Button variant="ghost" class="text-sm"> Läs mer </Button>
 			</div>
 		</div>
 	</NuxtLink>
