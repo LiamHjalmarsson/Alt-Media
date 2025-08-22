@@ -38,6 +38,14 @@ export default factories.createCoreController("api::global.global", ({ strapi })
 						},
 					},
 				},
+				seo: {
+					select: ["meta_title", "meta_description", "meta_cannical_url", "prevent_index"],
+					populate: {
+						meta_image: {
+							select: ["formats", "name", "width", "height", "url", "provider"],
+						},
+					},
+				},
 			},
 		});
 

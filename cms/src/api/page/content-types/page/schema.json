@@ -30,6 +30,11 @@
         "block.featured-projects",
         "block.featured-articles"
       ]
+    },
+    "seo": {
+      "type": "component",
+      "component": "seo.seo",
+      "repeatable": false
     }
   }
 }
