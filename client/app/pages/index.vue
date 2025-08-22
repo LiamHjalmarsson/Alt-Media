@@ -1,9 +1,18 @@
 <script setup lang="ts">
-const pageStore = usePageStore();
+import type { Strapi5ResponseSingle } from "@nuxtjs/strapi";
+import type { Page } from "~/types/collections/pages";
 
-const { data: pageData } = await useAsyncData("page", () => pageStore.fetchPage("home"), { server: true });
+const { findOne } = useStrapi();
 
-const page = useState("home-page", () => pageData.value);
+const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<Page>>(
+	"homePage",
+	() => findOne("pages", "home"),
+	{
+		server: true,
+	}
+);
+
+const page = computed(() => pageResponse.value?.data ?? null);
 </script>
 
 <template>

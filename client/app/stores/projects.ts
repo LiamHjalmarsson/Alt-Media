@@ -13,8 +13,6 @@ export const useProjectStore = defineStore("projects", () => {
 
 		projects.value = result.data || [];
 
-		console.log(projects.value, "Projects");
-
 		return projects.value;
 	}
 
@@ -22,8 +20,6 @@ export const useProjectStore = defineStore("projects", () => {
 		const result: Strapi5ResponseSingle<Project> = await findOne<Project>("projects", id);
 
 		currentProject.value = result.data;
-
-		console.log(currentProject.value, "Project");
 
 		return currentProject.value;
 	}

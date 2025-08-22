@@ -13,8 +13,6 @@ export const useServiceStore = defineStore("services", () => {
 
 		services.value = result.data || [];
 
-		console.log(services.value, "services");
-
 		return services.value;
 	}
 
@@ -22,8 +20,6 @@ export const useServiceStore = defineStore("services", () => {
 		const result: Strapi5ResponseSingle<Service> = await findOne<Service>("services", id);
 
 		currentService.value = result.data;
-
-		console.log(currentService.value, "Service");
 
 		return currentService.value;
 	}

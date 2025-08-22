@@ -11,8 +11,6 @@ export const useGlobalStore = defineStore("global", () => {
 
 		globalSettings.value = res.data;
 
-		console.log("Global", globalSettings.value);
-
 		return globalSettings.value;
 	}
 
