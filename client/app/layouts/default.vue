@@ -36,7 +36,7 @@ useSeoMeta({
 
 <template>
 	<div class="min-h-screen flex flex-col">
-		<!-- <Header /> -->
+		<Navigation />
 
 		<main class="grow">
 			<slot />

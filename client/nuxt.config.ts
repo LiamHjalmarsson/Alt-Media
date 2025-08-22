@@ -32,5 +32,12 @@ export default defineNuxtConfig({
 			baseURL: process.env.STRAPI_URL || "http://localhost:1337",
 		},
 	},
+
+	components: [
+		{
+			path: "~/components",
+			pathPrefix: false,
+		},
+	],
 });
 
