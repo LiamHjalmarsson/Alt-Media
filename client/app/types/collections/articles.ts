@@ -1,0 +1,13 @@
+import type { Image } from "../shared";
+import type { Service } from "./services";
+
+export interface Article {
+	id: number;
+	title: string;
+	slug: string;
+	description: string;
+	date: Date;
+	content: string;
+	cover: Image;
+	services: Service[];
+}
