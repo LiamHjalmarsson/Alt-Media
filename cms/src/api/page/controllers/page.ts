@@ -72,7 +72,7 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 								},
 							},
 						},
-						"block.featured": {
+						"block.featured-services": {
 							populate: {
 								select: ["__component", "id", "title"],
 								services: {
@@ -88,6 +88,11 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 										},
 									},
 								},
+							},
+						},
+						"block.featured-articles": {
+							populate: {
+								select: ["__component", "id", "title"],
 								articles: {
 									select: ["title", "slug", "description"],
 									populate: {
@@ -96,6 +101,11 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 										},
 									},
 								},
+							},
+						},
+						"block.featured-projects": {
+							populate: {
+								select: ["__component", "id", "title"],
 								projects: {
 									select: ["title", "slug"],
 									populate: {

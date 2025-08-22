@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_featured_articles",
+  "info": {
+    "displayName": "Featured Articles"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}

@@ -460,8 +460,10 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'block.info',
         'block.hero',
         'block.full-section',
-        'block.featured',
         'block.faq',
+        'block.featured-services',
+        'block.featured-projects',
+        'block.featured-articles',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -11,14 +11,34 @@ export interface BlockFaq extends Struct.ComponentSchema {
   };
 }
 
-export interface BlockFeatured extends Struct.ComponentSchema {
-  collectionName: 'components_block_featureds';
+export interface BlockFeaturedArticles extends Struct.ComponentSchema {
+  collectionName: 'components_block_featured_articles';
   info: {
-    displayName: 'Featured';
+    displayName: 'Featured Articles';
   };
   attributes: {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlockFeaturedProjects extends Struct.ComponentSchema {
+  collectionName: 'components_block_featured_projects';
+  info: {
+    displayName: 'Featured Projects';
+  };
+  attributes: {
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface BlockFeaturedServices extends Struct.ComponentSchema {
+  collectionName: 'components_block_featured_services';
+  info: {
+    displayName: 'Featured Services';
+  };
+  attributes: {
     services: Schema.Attribute.Relation<'oneToMany', 'api::service.service'>;
     title: Schema.Attribute.String;
   };
@@ -45,10 +65,7 @@ export interface BlockHero extends Struct.ComponentSchema {
   attributes: {
     buttons: Schema.Attribute.Component<'ui.button', true>;
     colored_title: Schema.Attribute.String;
-    cover: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Schema.Attribute.String;
     title: Schema.Attribute.String;
   };
@@ -211,7 +228,9 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'block.faq': BlockFaq;
-      'block.featured': BlockFeatured;
+      'block.featured-articles': BlockFeaturedArticles;
+      'block.featured-projects': BlockFeaturedProjects;
+      'block.featured-services': BlockFeaturedServices;
       'block.full-section': BlockFullSection;
       'block.hero': BlockHero;
       'block.info': BlockInfo;

@@ -9,8 +9,8 @@ export interface Image {
 
 export interface Button {
 	label: string;
-	type?: null;
-	variant?: null;
+	type?: ButtonType | null;
+	variant?: Variant | null;
 	url?: string | null;
 }
 
@@ -20,3 +20,16 @@ export interface Icon {
 	has_image?: boolean | null;
 	image?: Image | null;
 }
+
+export type AlignContent = "left" | "center" | "right";
+
+export type Variant =
+	| "primary"
+	| "primary-outline"
+	| "secondary"
+	| "secondary-outline"
+	| "tertiary"
+	| "tertiary-outline"
+	| "ghost";
+
+export type ButtonType = "button" | "submit" | "reset";

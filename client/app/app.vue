@@ -1,31 +1,30 @@
 <script setup lang="ts">
-const articleStore = useArticleStore();
+// const articleStore = useArticleStore();
 
-const projectStore = useProjectStore();
+// const projectStore = useProjectStore();
 
-const serviceStore = useServiceStore();
+// const serviceStore = useServiceStore();
 
-const pageStore = usePageStore();
+// const pageStore = usePageStore();
 
-projectStore.fetchProjects();
+// projectStore.fetchProjects();
 
-articleStore.fetchArticles();
+// articleStore.fetchArticles();
 
-serviceStore.fetchServices();
+// serviceStore.fetchServices();
 
-articleStore.fetchArticle("5-saker-att-taenka-pa-innan-du-bygger-en-ny-hemsida");
+// articleStore.fetchArticle("5-saker-att-taenka-pa-innan-du-bygger-en-ny-hemsida");
 
-projectStore.fetchProject("modehuset");
+// projectStore.fetchProject("modehuset");
 
-serviceStore.fetchService("cms");
+// serviceStore.fetchService("cms");
 
-pageStore.fetchHomePage();
-pageStore.fetchPage("om-oss");
+// pageStore.fetchPage("om-oss");
 </script>
 
 <template>
 	<NuxtLayout>
-		<div>ss</div>
+		<NuxtPage />
 	</NuxtLayout>
 </template>
 
