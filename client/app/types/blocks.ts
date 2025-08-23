@@ -1,7 +1,7 @@
 import type { Article } from "./collections/articles";
 import type { Project } from "./collections/projects";
 import type { Service } from "./collections/services";
-import type { AlignContent, Button, Image, Link } from "./shared";
+import type { AlignContent, Button, Image, Link, ListItem } from "./shared";
 
 export interface BaseBlock {
 	id: number;
@@ -41,10 +41,7 @@ export interface FeaturedProjectBlock extends BaseBlock {
 
 export interface ListBlock extends BaseBlock {
 	__component: "block.featured";
-	items: {
-		title: string;
-		description: string;
-	};
+	items: ListItem[];
 	button: Button[];
 }
 
@@ -56,10 +53,7 @@ export interface FullSectionBlock extends BaseBlock {
 
 export interface FaqBlock extends BaseBlock {
 	__component: "block.faq";
-	items: {
-		title: string;
-		description: string;
-	};
+	items: ListItem[];
 }
 
 export type Blocks =

@@ -29,6 +29,12 @@ export interface Icon {
 	image: Image | null;
 }
 
+export interface ListItem {
+	id: number;
+	title: string;
+	description: string;
+}
+
 export type AlignContent = "left" | "center" | "right";
 
 export type Variant =

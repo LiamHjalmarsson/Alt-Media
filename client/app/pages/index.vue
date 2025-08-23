@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Strapi5ResponseSingle } from "@nuxtjs/strapi";
 import FeaturedArticles from "~/components/block/articles/FeaturedArticles.vue";
-import Hero from "~/components/block/hero/Hero.vue";
+import Faqs from "~/components/block/Faqs/Faqs.vue";
 import FeaturedProjects from "~/components/block/projects/FeaturedProjects.vue";
 import FeaturedServices from "~/components/block/services/FeaturedServices.vue";
 import type { Blocks } from "~/types/blocks";
@@ -23,6 +23,7 @@ const componentMap: Record<string, any> = {
 	"block.featured-articles": FeaturedArticles,
 	"block.featured-projects": FeaturedProjects,
 	"block.featured-services": FeaturedServices,
+	"block.faq": Faqs,
 };
 </script>
 
