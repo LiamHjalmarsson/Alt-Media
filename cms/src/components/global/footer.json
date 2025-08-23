@@ -8,13 +8,13 @@
     "title": {
       "type": "string"
     },
-    "button": {
-      "type": "component",
-      "component": "ui.button",
-      "repeatable": false
-    },
     "description": {
       "type": "text"
+    },
+    "link": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": false
     },
     "footer_column": {
       "type": "component",

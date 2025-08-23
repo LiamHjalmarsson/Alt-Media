@@ -171,9 +171,9 @@ export interface GlobalFooter extends Struct.ComponentSchema {
     displayName: 'Footer';
   };
   attributes: {
-    button: Schema.Attribute.Component<'ui.button', false>;
     description: Schema.Attribute.Text;
     footer_column: Schema.Attribute.Component<'global.footer-column', true>;
+    link: Schema.Attribute.Component<'ui.link', false>;
     title: Schema.Attribute.String;
   };
 }

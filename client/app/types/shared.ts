@@ -18,7 +18,7 @@ export interface Button {
 
 export interface Link {
 	label: string;
-	url: string | null;
+	url: string;
 	variant?: Variant;
 }
 

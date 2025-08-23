@@ -25,8 +25,8 @@ export default factories.createCoreController("api::global.global", ({ strapi })
 				footer: {
 					fields: ["title", "description"],
 					populate: {
-						button: {
-							fields: ["label", "url", "type", "variant"],
+						link: {
+							fields: ["label", "url", "variant"],
 						},
 						footer_column: {
 							fields: ["title", "url"],

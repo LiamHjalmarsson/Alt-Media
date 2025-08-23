@@ -1,4 +1,4 @@
-import type { Button, Image } from "./shared";
+import type { Button, Image, Link } from "./shared";
 
 export interface MenuLink {
 	title: string;
@@ -21,7 +21,7 @@ export interface Footer {
 	id: number;
 	title: string;
 	description: string;
-	button: Button;
+	link: Link;
 	footer_column: FooterColumn[];
 }
 
