@@ -49,6 +49,7 @@ export interface FullSectionBlock extends BaseBlock {
 	__component: "block.full-section";
 	cover: Image;
 	link: Button;
+	description: string;
 }
 
 export interface FaqBlock extends BaseBlock {
