@@ -5,40 +5,46 @@
 import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::article.article", ({ strapi }) => ({
-	// Find Article to fetch by slug instad of id
 	async findOne(ctx) {
+		await this.validateQuery(ctx);
+
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
 		const { id } = ctx.params;
 
-		const entity = await strapi.db.query("api::article.article").findOne({
-			where: { slug: id },
-			select: ["id", "title", "slug", "description", "content", "date"],
+		const { results } = await strapi.service("api::article.article").find({
+			...sanitizedQuery,
+			filters: { slug: id },
+			fields: ["id", "title", "slug", "description", "content", "date"],
 			populate: {
 				cover: {
-					select: ["formats", "name", "width", "height", "url", "provider"],
+					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				services: {
-					select: ["title", "slug", "description", "content"],
+					fields: ["title", "slug", "description", "content"],
 					populate: {
 						sub_services: {
-							select: ["title", "content"],
+							fields: ["title", "content"],
 							populate: {
-								tags: {
-									select: "title",
-								},
+								tags: { fields: ["title"] },
 							},
 						},
 						icon: {
-							select: ["name", "has_image"],
+							fields: ["name", "has_image"],
 							populate: {
 								image: {
-									select: ["formats", "name", "width", "height", "url", "provider"],
+									fields: ["formats", "name", "width", "height", "url", "provider"],
 								},
 							},
 						},
 					},
 				},
 			},
+			publicationState: "live",
+			limit: 1,
 		});
+
+		const entity = results?.[0];
 
 		if (!entity) {
 			return ctx.notFound("Article not found");
@@ -50,25 +56,28 @@ export default factories.createCoreController("api::article.article", ({ strapi 
 	},
 
 	async find(ctx) {
-		const entity = await strapi.db.query("api::article.article").findMany({
-			select: ["id", "title", "slug", "description", "date"],
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
+		const { results, pagination } = await strapi.service("api::article.article").find({
+			...sanitizedQuery,
+			fields: ["id", "title", "slug", "description", "date"],
 			populate: {
 				cover: {
-					select: ["formats", "name", "width", "height", "url", "provider"],
+					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				services: {
-					select: ["title", "slug"],
+					fields: ["title", "slug"],
 				},
 			},
 		});
 
-		if (!entity) {
+		if (!results || results.length === 0) {
 			return ctx.notFound("Articles not found");
 		}
 
-		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
 
-		return this.transformResponse(sanitizedEntity);
+		return this.transformResponse(sanitizedEntity, { pagination });
 	},
 }));
 

@@ -6,43 +6,43 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::global.global", ({ strapi }) => ({
 	async find(ctx) {
-		const entity = await strapi.db.query("api::global.global").findOne({
-			select: ["id", "site_name"],
+		const entity = await strapi.service("api::global.global").find({
+			fields: ["id", "site_name"],
 			populate: {
 				favicon: {
-					select: ["formats", "name", "width", "height", "url", "provider"],
+					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				navigation: {
 					populate: {
 						links: {
-							select: ["title", "url"],
+							fields: ["title", "url"],
 						},
 						logo: {
-							select: ["formats", "name", "width", "height", "url", "provider"],
+							fields: ["formats", "name", "width", "height", "url", "provider"],
 						},
 					},
 				},
 				footer: {
-					select: ["title", "description"],
+					fields: ["title", "description"],
 					populate: {
 						button: {
-							select: ["label", "url", "type", "variant"],
+							fields: ["label", "url", "type", "variant"],
 						},
 						footer_column: {
-							select: ["title", "url"],
+							fields: ["title", "url"],
 							populate: {
 								links: {
-									select: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "type", "variant"],
 								},
 							},
 						},
 					},
 				},
 				seo: {
-					select: ["meta_title", "meta_description", "meta_cannical_url", "prevent_index"],
+					fields: ["meta_title", "meta_description", "meta_cannical_url", "prevent_index"],
 					populate: {
 						meta_image: {
-							select: ["formats", "name", "width", "height", "url", "provider"],
+							fields: ["formats", "name", "width", "height", "url", "provider"],
 						},
 					},
 				},

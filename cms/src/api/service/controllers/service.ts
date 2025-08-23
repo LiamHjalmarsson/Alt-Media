@@ -6,30 +6,38 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::service.service", ({ strapi }) => ({
 	async findOne(ctx) {
+		await this.validateQuery(ctx);
+
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
 		const { id } = ctx.params;
 
-		const entity = await strapi.db.query("api::service.service").findOne({
+		const { results } = await strapi.service("api::service.service").find({
+			...sanitizedQuery,
+			filters: { slug: id },
 			where: { slug: id },
-			select: ["id", "title", "slug", "content", "description"],
+			fields: ["id", "title", "slug", "content", "description"],
 			populate: {
 				sub_services: {
-					select: ["title", "content"],
+					fields: ["title", "content"],
 					populate: {
 						tags: {
-							select: "title",
+							fields: "title",
 						},
 					},
 				},
 				icon: {
-					select: ["name", "has_image"],
+					fields: ["name", "has_image"],
 					populate: {
 						image: {
-							select: ["formats", "name", "width", "height", "url", "provider"],
+							fields: ["formats", "name", "width", "height", "url", "provider"],
 						},
 					},
 				},
 			},
 		});
+
+		const entity = results?.[0];
 
 		if (!entity) {
 			return ctx.notFound("Service not found");
@@ -41,33 +49,36 @@ export default factories.createCoreController("api::service.service", ({ strapi 
 	},
 
 	async find(ctx) {
-		const entity = await strapi.db.query("api::service.service").findMany({
-			select: ["id", "title", "slug", "description", "content"],
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
+		const { results, pagination } = await strapi.service("api::service.service").find({
+			...sanitizedQuery,
+			fields: ["id", "title", "slug", "description", "content"],
 			populate: {
 				sub_services: {
-					select: ["title", "content"],
+					fields: ["title", "content"],
 					populate: {
 						tags: {
-							select: "title",
+							fields: "title",
 						},
 					},
 				},
 				icon: {
-					select: ["name", "has_image"],
+					fields: ["name", "has_image"],
 					populate: {
 						image: {
-							select: ["formats", "name", "width", "height", "url", "provider"],
+							fields: ["formats", "name", "width", "height", "url", "provider"],
 						},
 					},
 				},
 			},
 		});
 
-		if (!entity) {
+		if (!results || results.length === 0) {
 			return ctx.notFound("Articles not found");
 		}
 
-		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
 
 		return this.transformResponse(sanitizedEntity);
 	},

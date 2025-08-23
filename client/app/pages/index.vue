@@ -10,12 +10,12 @@ const { findOne } = useStrapi();
 const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage>>(
 	"home-page",
 	() => findOne("home-page"),
-	{
-		server: true,
-	}
+	{ server: true, lazy: false }
 );
 
 const page = computed(() => pageResponse.value?.data ?? null);
+
+console.log(page.value);
 
 const blocks = computed<Blocks[]>(() => page?.value?.blocks ?? []);
 
@@ -69,7 +69,7 @@ const componentMap: Record<string, any> = {
 		</div>
 	</Hero>
 
-	<template v-for="(block, i) in blocks" :key="block.id ?? i">
+	<template v-for="block in blocks" :key="`${block.__component}-${block.id}`">
 		<component v-if="componentMap[block.__component]" :is="componentMap[block.__component]" :block="block" />
 	</template>
 </template>

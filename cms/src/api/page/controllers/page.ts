@@ -6,83 +6,88 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::page.page", ({ strapi }) => ({
 	async findOne(ctx) {
+		await this.validateQuery(ctx);
+
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
 		const { id } = ctx.params;
 
-		const entity = await strapi.db.query("api::page.page").findOne({
-			where: { slug: id },
-			select: ["id", "title", "slug"],
+		const { results } = await strapi.service("api::page.page").find({
+			...sanitizedQuery,
+			filters: { slug: id },
+			fields: ["id", "title", "slug"],
 			populate: {
 				blocks: {
 					on: {
 						"block.hero": {
 							populate: {
-								select: ["__component", "id", "title", "colored_title", "description"],
+								fields: ["id", "title", "colored_title", "description"],
 								cover: {
 									populate: {
-										select: ["formats", "name", "width", "height", "url", "provider"],
+										fields: ["formats", "name", "width", "height", "url", "provider"],
 									},
 								},
 								buttons: {
-									select: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "type", "variant"],
 								},
 							},
 						},
 						"block.list": {
 							populate: {
-								select: ["__component", "id", "title"],
+								fields: ["id", "title"],
 								button: {
-									select: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "type", "variant"],
 								},
 								items: {
-									select: ["title", "description"],
+									fields: ["title", "description"],
 								},
 							},
 						},
 						"block.info": {
 							populate: {
-								select: ["__component", "id", "title", "align_content"],
-								cover: {
+								fields: ["id", "title", "align_content"],
+								image: {
 									populate: {
-										select: ["formats", "name", "width", "height", "url", "provider"],
+										fields: ["formats", "name", "width", "height", "url", "provider"],
 									},
 								},
 								button: {
-									select: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "type", "variant"],
 								},
 							},
 						},
 						"block.full-section": {
 							populate: {
-								select: ["__component", "id", "title", "description"],
+								fields: ["id", "title", "description"],
 								cover: {
 									populate: {
-										select: ["formats", "name", "width", "height", "url", "provider"],
+										fields: ["formats", "name", "width", "height", "url", "provider"],
 									},
 								},
 								link: {
-									select: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "type", "variant"],
 								},
 							},
 						},
 						"block.faq": {
 							populate: {
-								select: ["__component", "id", "title"],
+								fields: ["id", "title"],
 								items: {
-									select: ["title", "description"],
+									fields: ["title", "description"],
 								},
 							},
 						},
 						"block.featured-services": {
 							populate: {
-								select: ["__component", "id", "title"],
+								fields: ["id", "title"],
 								services: {
-									select: ["title", "slug", "description"],
+									fields: ["title", "slug", "description"],
 									populate: {
 										icon: {
-											select: ["name", "has_image"],
+											fields: ["name", "has_image"],
 											populate: {
 												image: {
-													select: ["formats", "name", "width", "height", "url", "provider"],
+													fields: ["formats", "name", "width", "height", "url", "provider"],
 												},
 											},
 										},
@@ -92,12 +97,12 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 						},
 						"block.featured-articles": {
 							populate: {
-								select: ["__component", "id", "title"],
+								fields: ["id", "title"],
 								articles: {
-									select: ["title", "slug", "description", "date"],
+									fields: ["title", "slug", "description", "date"],
 									populate: {
 										cover: {
-											select: ["formats", "name", "width", "height", "url", "provider"],
+											fields: ["formats", "name", "width", "height", "url", "provider"],
 										},
 									},
 								},
@@ -105,12 +110,12 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 						},
 						"block.featured-projects": {
 							populate: {
-								select: ["__component", "id", "title"],
+								fields: ["id", "title"],
 								projects: {
-									select: ["title", "slug"],
+									fields: ["title", "slug"],
 									populate: {
 										cover: {
-											select: ["formats", "name", "width", "height", "url", "provider"],
+											fields: ["formats", "name", "width", "height", "url", "provider"],
 										},
 									},
 								},
@@ -120,6 +125,8 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 				},
 			},
 		});
+
+		const entity = results?.[0];
 
 		if (!entity) {
 			return ctx.notFound("Page not found");

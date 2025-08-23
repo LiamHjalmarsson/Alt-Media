@@ -6,31 +6,36 @@ import { factories } from "@strapi/strapi";
 
 export default factories.createCoreController("api::project.project", ({ strapi }) => ({
 	async findOne(ctx) {
+		await this.validateQuery(ctx);
+
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
 		const { id } = ctx.params;
 
-		const entity = await strapi.db.query("api::project.project").findOne({
-			where: { slug: id },
-			select: ["id", "title", "slug", "content"],
+		const { results } = await strapi.service("api::project.project").find({
+			...sanitizedQuery,
+			filters: { slug: id },
+			fields: ["id", "title", "slug", "content"],
 			populate: {
 				cover: {
-					select: ["formats", "name", "width", "height", "url", "provider"],
+					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				services: {
-					select: ["title", "slug", "description", "content"],
+					fields: ["title", "slug", "description", "content"],
 					populate: {
 						sub_services: {
-							select: ["title", "content"],
+							fields: ["title", "content"],
 							populate: {
 								tags: {
-									select: "title",
+									fields: "title",
 								},
 							},
 						},
 						icon: {
-							select: ["name", "has_image"],
+							fields: ["name", "has_image"],
 							populate: {
 								image: {
-									select: ["formats", "name", "width", "height", "url", "provider"],
+									fields: ["formats", "name", "width", "height", "url", "provider"],
 								},
 							},
 						},
@@ -38,6 +43,8 @@ export default factories.createCoreController("api::project.project", ({ strapi 
 				},
 			},
 		});
+
+		const entity = results?.[0];
 
 		if (!entity) {
 			return ctx.notFound("Project not found");
@@ -49,23 +56,26 @@ export default factories.createCoreController("api::project.project", ({ strapi 
 	},
 
 	async find(ctx) {
-		const entity = await strapi.db.query("api::project.project").findMany({
-			select: ["id", "title", "slug"],
+		const sanitizedQuery = await this.sanitizeQuery(ctx);
+
+		const { results, pagination } = await strapi.service("api::project.project").find({
+			...sanitizedQuery,
+			fields: ["id", "title", "slug"],
 			populate: {
 				cover: {
-					select: ["formats", "name", "width", "height", "url", "provider"],
+					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				services: {
-					select: ["title", "slug"],
+					fields: ["title", "slug"],
 				},
 			},
 		});
 
-		if (!entity) {
-			return ctx.notFound("Projects not found");
+		if (!results || results.length === 0) {
+			return ctx.notFound("Articles not found");
 		}
 
-		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
+		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
 
 		return this.transformResponse(sanitizedEntity);
 	},

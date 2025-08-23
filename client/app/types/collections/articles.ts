@@ -1,5 +1,6 @@
 import type { Image } from "../shared";
 import type { Service } from "./services";
+import type { BlockNode } from "#strapi-blocks-renderer/types";
 
 export interface Article {
 	id: number;
@@ -7,7 +8,7 @@ export interface Article {
 	slug: string;
 	description: string;
 	date: Date;
-	content: string;
+	content: BlockNode[];
 	cover: Image;
 	services: Service[];
 }
