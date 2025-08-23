@@ -12,6 +12,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::project.project"
+    },
+    "link": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": false
     }
   },
   "config": {}

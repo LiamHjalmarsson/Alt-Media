@@ -1,7 +1,7 @@
 import type { Article } from "./collections/articles";
 import type { Project } from "./collections/projects";
 import type { Service } from "./collections/services";
-import type { AlignContent, Button, Image } from "./shared";
+import type { AlignContent, Button, Image, Link } from "./shared";
 
 export interface BaseBlock {
 	id: number;
@@ -36,6 +36,7 @@ export interface FeaturedServiceBlock extends BaseBlock {
 export interface FeaturedProjectBlock extends BaseBlock {
 	__component: "block.featured";
 	projects?: Project[] | [];
+	link: Link;
 }
 
 export interface ListBlock extends BaseBlock {

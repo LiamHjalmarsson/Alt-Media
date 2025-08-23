@@ -45,15 +45,12 @@ const blockNodes = computed<BlockNode[]>(() => {
 				<div class="md:col-span-2 pr-2xl">
 					<h2 class="text-heading-xl font-bold mb-sm">Om projektet</h2>
 
-					<div v-if="currentArticle?.description" class="text-body-lg leading-relaxed">
-						<StrapiBlocksText :nodes="blockNodes" />
-					</div>
-
-					<p v-else class="text-body-lg leading-relaxed text-dark-gray">Beskrivning saknas.</p>
+					<StrapiBlocksText :nodes="blockNodes" />
 				</div>
 
 				<aside>
 					<h3 class="text-heading-lg font-bold mb-sm mt-xs">Vad vi gjort</h3>
+
 					<ol class="space-y-md grow">
 						<li
 							v-for="(service, i) in currentArticle?.services ?? []"

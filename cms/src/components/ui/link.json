@@ -10,6 +10,18 @@
     },
     "url": {
       "type": "string"
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "primary-outline",
+        "secondary",
+        "secondary-outline",
+        "tertiary",
+        "tertiary-outline",
+        "ghost"
+      ]
     }
   },
   "config": {}

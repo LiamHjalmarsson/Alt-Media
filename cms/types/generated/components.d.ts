@@ -28,6 +28,7 @@ export interface BlockFeaturedProjects extends Struct.ComponentSchema {
     displayName: 'Featured Projects';
   };
   attributes: {
+    link: Schema.Attribute.Component<'ui.link', false>;
     projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     title: Schema.Attribute.String;
   };
@@ -169,7 +170,15 @@ export interface UiButton extends Struct.ComponentSchema {
     type: Schema.Attribute.Enumeration<['button', 'submit', 'reset']>;
     url: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<
-      ['primary', 'secondary', 'ternary', 'ghost']
+      [
+        'primary',
+        'primary-outline',
+        'secondary',
+        'secondary-outline',
+        'tertiary',
+        'tertiary-outline',
+        'ghost',
+      ]
     >;
   };
 }
@@ -207,6 +216,17 @@ export interface UiLink extends Struct.ComponentSchema {
   attributes: {
     label: Schema.Attribute.String;
     url: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'primary-outline',
+        'secondary',
+        'secondary-outline',
+        'tertiary',
+        'tertiary-outline',
+        'ghost',
+      ]
+    >;
   };
 }
 

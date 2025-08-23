@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { FeaturedArticleBlock } from "~/types/blocks";
 
-const props = defineProps<{ block: FeaturedArticleBlock }>();
-
-console.log(props.block);
+defineProps<{ block: FeaturedArticleBlock }>();
 </script>
 
 <template>

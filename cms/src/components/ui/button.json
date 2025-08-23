@@ -23,8 +23,11 @@
       "type": "enumeration",
       "enum": [
         "primary",
+        "primary-outline",
         "secondary",
-        "ternary",
+        "secondary-outline",
+        "tertiary",
+        "tertiary-outline",
         "ghost"
       ]
     }

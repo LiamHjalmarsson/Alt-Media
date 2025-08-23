@@ -25,8 +25,7 @@ const alignClass = computed(() => {
 
 <template>
 	<div :class="['', alignClass]">
-		<h2
-			class="text-heading-md md:text-heading-lg lg:text-heading-xl xl:text-heading-2xl font-semibold tracking-tight">
+		<h2 class="text-heading-md md:text-heading-lg lg:text-heading-xl xl:text-heading-2xl font-bold tracking-tight">
 			{{ title }}
 		</h2>
 	</div>

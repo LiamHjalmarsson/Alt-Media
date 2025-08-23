@@ -2,6 +2,8 @@
 import type { Strapi5ResponseSingle } from "@nuxtjs/strapi";
 import FeaturedArticles from "~/components/block/articles/FeaturedArticles.vue";
 import Hero from "~/components/block/hero/Hero.vue";
+import FeaturedProjects from "~/components/block/projects/FeaturedProjects.vue";
+import FeaturedServices from "~/components/block/services/FeaturedServices.vue";
 import type { Blocks } from "~/types/blocks";
 import type { HomePage } from "~/types/collections/pages";
 
@@ -15,12 +17,12 @@ const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage
 
 const page = computed(() => pageResponse.value?.data ?? null);
 
-console.log(page.value);
-
 const blocks = computed<Blocks[]>(() => page?.value?.blocks ?? []);
 
 const componentMap: Record<string, any> = {
 	"block.featured-articles": FeaturedArticles,
+	"block.featured-projects": FeaturedProjects,
+	"block.featured-services": FeaturedServices,
 };
 </script>
 
