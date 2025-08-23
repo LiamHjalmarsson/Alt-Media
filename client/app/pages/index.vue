@@ -3,8 +3,10 @@ import type { Strapi5ResponseSingle } from "@nuxtjs/strapi";
 import FeaturedArticles from "~/components/block/articles/FeaturedArticles.vue";
 import Faqs from "~/components/block/faqs/Faqs.vue";
 import FullSection from "~/components/block/fullSection/FullSection.vue";
+import List from "~/components/block/list/list.vue";
 import FeaturedProjects from "~/components/block/projects/FeaturedProjects.vue";
 import FeaturedServices from "~/components/block/services/FeaturedServices.vue";
+import Solutions from "~/components/block/solution/Solutions.vue";
 import type { Blocks } from "~/types/blocks";
 import type { HomePage } from "~/types/collections/pages";
 
@@ -18,6 +20,7 @@ const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage
 
 const page = computed(() => pageResponse.value?.data ?? null);
 
+console.log(page.value?.hero.form);
 const blocks = computed<Blocks[]>(() => page?.value?.blocks ?? []);
 
 const componentMap: Record<string, any> = {
@@ -26,6 +29,8 @@ const componentMap: Record<string, any> = {
 	"block.featured-services": FeaturedServices,
 	"block.faq": Faqs,
 	"block.full-section": FullSection,
+	"block.list": List,
+	"block.solution": Solutions,
 };
 </script>
 
@@ -43,32 +48,40 @@ const componentMap: Record<string, any> = {
 						rgba(99, 102, 241, 0.28)
 					);
 				"></div>
-			<FormCard class="sm:w-[480px] max-lg:hidden">
-				<h3 class="text-heading-md text-light font-bold">Påbörja projekt</h3>
+
+			<FormCard class="sm:w-[480px] max-lg:hidden" v-if="page.hero.form">
+				<h3 class="text-heading-md text-light font-bold">{{ page.hero.form.title }}</h3>
 
 				<p class="my-md text-md text-light-gray">
-					Berätta för oss vad du behöver och vi återkommer inom 24 timmar
+					{{ page.hero.form.description }}
 				</p>
 
 				<form class="space-y-lg">
-					<Grid class="grid-cols-2" gap="xl">
-						<FormField label="Namn">
+					<Grid class="grid-cols-2" gap="xl" v-if="page.hero.form.input">
+						<FormField v-for="input in page.hero.form.input" :key="input.name" :label="input.label">
 							<Input id="" name="" placeholder="" />
-						</FormField>
-						<FormField label="Email">
-							<Input id="" name="" type="email" placeholder="" />
 						</FormField>
 					</Grid>
 
-					<FormField label="Välj tjänster">
-						<Select id="" name=""> </Select>
+					<FormField
+						v-if="page.hero.form.select"
+						v-for="select in page.hero.form.select"
+						:key="select.name"
+						:label="select.label">
+						<Select id="" name="">
+							<option v-for="option in select.options" :key="option">{{ option }}</option>
+						</Select>
 					</FormField>
 
-					<FormField label="Brief">
+					<FormField
+						v-if="page.hero.form.textarea"
+						v-for="select in page.hero.form.textarea"
+						:key="select.name"
+						:label="select.label">
 						<Textarea id="" name="" rows="" placeholder="" />
 					</FormField>
 
-					<Button type="submit" class="w-1/2"> Skicka förfrågan </Button>
+					<Button type="submit" class="w-1/2"> {{ page.hero.form.button?.label }} </Button>
 				</form>
 			</FormCard>
 		</div>

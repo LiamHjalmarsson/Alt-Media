@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_form_forms",
+  "info": {
+    "displayName": "Form"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "input": {
+      "type": "component",
+      "component": "form.input",
+      "repeatable": true
+    },
+    "select": {
+      "type": "component",
+      "component": "form.select",
+      "repeatable": true
+    },
+    "textarea": {
+      "type": "component",
+      "component": "form.textarea",
+      "repeatable": true
+    },
+    "button": {
+      "type": "component",
+      "component": "ui.button",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

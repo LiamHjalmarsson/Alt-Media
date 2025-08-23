@@ -28,6 +28,11 @@
       "type": "component",
       "component": "ui.button",
       "repeatable": true
+    },
+    "form": {
+      "type": "component",
+      "component": "form.form",
+      "repeatable": false
     }
   },
   "config": {}

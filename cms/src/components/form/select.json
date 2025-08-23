@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_form_selects",
+  "info": {
+    "displayName": "Select"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "options": {
+      "type": "json"
+    }
+  },
+  "config": {}
+}

@@ -25,7 +25,8 @@
         "block.featured-services",
         "block.featured-projects",
         "block.featured-articles",
-        "block.faq"
+        "block.faq",
+        "block.solution"
       ]
     }
   }

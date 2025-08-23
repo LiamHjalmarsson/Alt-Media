@@ -20,6 +20,23 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 								fields: ["formats", "name", "width", "height", "url", "provider"],
 							},
 						},
+						form: {
+							fields: ["title", "description"],
+							populate: {
+								button: {
+									fields: ["label", "type", "variant"],
+								},
+								input: {
+									fields: ["label", "type", "name", "placeholder", "required"],
+								},
+								select: {
+									fields: ["label", "name", "options", "required"],
+								},
+								textarea: {
+									fields: ["label", "name", "placeholder", "rows", "required"],
+								},
+							},
+						},
 						buttons: {
 							fields: ["label", "url", "type", "variant"],
 						},
@@ -35,6 +52,15 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 								},
 								items: {
 									fields: ["title", "description"],
+								},
+							},
+						},
+						"block.solution": {
+							fields: ["id", "title"],
+							populate: {
+								items: {
+									fields: ["title", "description"],
+									populate: "*",
 								},
 							},
 						},

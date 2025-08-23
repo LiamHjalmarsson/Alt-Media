@@ -1,7 +1,7 @@
 import type { Article } from "./collections/articles";
 import type { Project } from "./collections/projects";
 import type { Service } from "./collections/services";
-import type { AlignContent, Button, Image, Link, ListItem } from "./shared";
+import type { AlignContent, Button, Form, Icon, Image, Link, ListItem } from "./shared";
 
 export interface BaseBlock {
 	id: number;
@@ -21,6 +21,19 @@ export interface HeroBlock extends BaseBlock {
 	description: string;
 	buttons: Button[];
 	cover: Image;
+	form?: Form;
+}
+
+export interface Solution {
+	id: number;
+	title: string;
+	description: string;
+	icon: Icon;
+}
+
+export interface SolutionBlock extends BaseBlock {
+	__component: "blocks.solution";
+	items: Solution[];
 }
 
 export interface FeaturedArticleBlock extends BaseBlock {

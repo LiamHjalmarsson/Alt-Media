@@ -68,6 +68,7 @@ export interface BlockHero extends Struct.ComponentSchema {
     colored_title: Schema.Attribute.String;
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Schema.Attribute.String;
+    form: Schema.Attribute.Component<'form.form', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -94,6 +95,73 @@ export interface BlockList extends Struct.ComponentSchema {
     button: Schema.Attribute.Component<'ui.button', true>;
     items: Schema.Attribute.Component<'ui.card', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface BlockSolution extends Struct.ComponentSchema {
+  collectionName: 'components_block_solutions';
+  info: {
+    displayName: 'Solution';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'ui.card', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FormForm extends Struct.ComponentSchema {
+  collectionName: 'components_form_forms';
+  info: {
+    displayName: 'Form';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'ui.button', false>;
+    description: Schema.Attribute.String;
+    input: Schema.Attribute.Component<'form.input', true>;
+    select: Schema.Attribute.Component<'form.select', true>;
+    textarea: Schema.Attribute.Component<'form.textarea', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface FormInput extends Struct.ComponentSchema {
+  collectionName: 'components_form_inputs';
+  info: {
+    displayName: 'Input';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
+    type: Schema.Attribute.String;
+  };
+}
+
+export interface FormSelect extends Struct.ComponentSchema {
+  collectionName: 'components_form_selects';
+  info: {
+    displayName: 'Select';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    options: Schema.Attribute.JSON;
+    required: Schema.Attribute.Boolean;
+  };
+}
+
+export interface FormTextarea extends Struct.ComponentSchema {
+  collectionName: 'components_form_textareas';
+  info: {
+    displayName: 'Textarea';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    required: Schema.Attribute.Boolean;
+    rows: Schema.Attribute.Integer;
   };
 }
 
@@ -266,6 +334,11 @@ declare module '@strapi/strapi' {
       'block.hero': BlockHero;
       'block.info': BlockInfo;
       'block.list': BlockList;
+      'block.solution': BlockSolution;
+      'form.form': FormForm;
+      'form.input': FormInput;
+      'form.select': FormSelect;
+      'form.textarea': FormTextarea;
       'global.footer': GlobalFooter;
       'global.footer-column': GlobalFooterColumn;
       'global.navigaion': GlobalNavigaion;

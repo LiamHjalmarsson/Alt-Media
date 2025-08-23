@@ -35,6 +35,38 @@ export interface ListItem {
 	description: string;
 }
 
+export interface Input {
+	label: string;
+	name: string;
+	type?: string;
+	placeholder?: string;
+	required?: boolean;
+}
+
+export interface Select {
+	label: string;
+	name: string;
+	options: string[];
+	required?: boolean;
+}
+
+export interface Textarea {
+	label: string;
+	name: string;
+	placeholder?: string;
+	rows?: number;
+	required?: boolean;
+}
+
+export interface Form {
+	title: string;
+	description?: string;
+	button?: Button;
+	input?: Input[];
+	select?: Select[];
+	textarea?: Textarea[];
+}
+
 export type AlignContent = "left" | "center" | "right";
 
 export type Variant =

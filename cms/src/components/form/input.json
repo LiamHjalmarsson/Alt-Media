@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_form_inputs",
+  "info": {
+    "displayName": "Input"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "placeholder": {
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

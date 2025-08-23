@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_block_solutions",
+  "info": {
+    "displayName": "Solution"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "component": "ui.card",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
