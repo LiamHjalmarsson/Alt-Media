@@ -592,7 +592,7 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
 export interface ApiSubServiceSubService extends Struct.CollectionTypeSchema {
   collectionName: 'sub_services';
   info: {
-    displayName: 'Sub service';
+    displayName: 'Sub Service';
     pluralName: 'sub-services';
     singularName: 'sub-service';
   };

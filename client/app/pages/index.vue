@@ -10,7 +10,7 @@ const { findOne } = useStrapi();
 const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage>>(
 	"home-page",
 	() => findOne("home-page"),
-	{ server: true, lazy: false }
+	{ server: true }
 );
 
 const page = computed(() => pageResponse.value?.data ?? null);
@@ -38,7 +38,7 @@ const componentMap: Record<string, any> = {
 						rgba(99, 102, 241, 0.28)
 					);
 				"></div>
-			<Card class="sm:w-[480px] max-lg:hidden">
+			<FormCard class="sm:w-[480px] max-lg:hidden">
 				<h3 class="text-heading-md text-light font-bold">Påbörja projekt</h3>
 
 				<p class="my-md text-md text-light-gray">
@@ -65,7 +65,7 @@ const componentMap: Record<string, any> = {
 
 					<Button type="submit" class="w-1/2"> Skicka förfrågan </Button>
 				</form>
-			</Card>
+			</FormCard>
 		</div>
 	</Hero>
 
