@@ -20,7 +20,6 @@ const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage
 
 const page = computed(() => pageResponse.value?.data ?? null);
 
-console.log(page.value?.hero.form);
 const blocks = computed<Blocks[]>(() => page?.value?.blocks ?? []);
 
 const componentMap: Record<string, any> = {
@@ -38,16 +37,7 @@ const componentMap: Record<string, any> = {
 	<Hero v-if="page?.hero" :block="page.hero" class="min-h-screen">
 		<div class="flex justify-end items-center relative max-lg:hidden">
 			<div
-				class="absolute -top-6 left-1/2 w-[600px] h-[600px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
-				style="
-					background: conic-gradient(
-						from 0deg,
-						rgba(99, 102, 241, 0.28),
-						rgba(56, 189, 248, 0.28),
-						rgba(16, 185, 129, 0.28),
-						rgba(99, 102, 241, 0.28)
-					);
-				"></div>
+				class="absolute -top-6 left-1/2 w-[600px] h-[600px] -translate-x-1/2 rounded-full opacity-50 blur-3xl gradient-ring"></div>
 
 			<FormCard class="sm:w-[480px] max-lg:hidden" v-if="page.hero.form">
 				<h3 class="text-heading-md text-light font-bold">{{ page.hero.form.title }}</h3>

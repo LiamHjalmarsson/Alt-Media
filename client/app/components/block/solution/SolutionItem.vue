@@ -12,7 +12,7 @@ const { solution } = defineProps<{ solution: Solution }>();
 				<h3 class="text-heading-md font-semibold mb-lg">
 					{{ solution.title }}
 				</h3>
-				<p class="text-body-lg">
+				<p class="text-lg">
 					{{ solution.description }}
 				</p>
 			</div>

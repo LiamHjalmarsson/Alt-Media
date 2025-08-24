@@ -7,15 +7,13 @@ const imageUrl = computed(() => (block.cover ? `${block.cover?.url}` : null));
 </script>
 
 <template>
-	<Section class="h-screen bg-cover bg-center relative">
+	<Section class="h-screen bg-cover bg-center relative bg-bg-dark">
 		<NuxtImg
 			v-if="imageUrl"
 			:src="imageUrl"
 			alt=""
 			aria-hidden="true"
-			class="absolute inset-0 h-full w-full object-cover" />
-
-		<div class="absolute inset-0 bg-bg-dark/80" aria-hidden="true" />
+			class="absolute inset-0 h-full w-full object-cover opacity-10" />
 
 		<div class="text-light relative z-10 max-w-screen-sm lg:max-w-screen-md text-center">
 			<h3

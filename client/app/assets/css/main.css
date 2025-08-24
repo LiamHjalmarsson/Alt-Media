@@ -94,3 +94,13 @@
 		font-family: var(--font-heading);
 	}
 }
+
+.gradient-ring {
+	background: conic-gradient(
+		from 0deg,
+		rgba(99, 102, 241, 0.28),
+		rgba(56, 189, 248, 0.28),
+		rgba(16, 185, 129, 0.28),
+		rgba(99, 102, 241, 0.28)
+	);
+}
