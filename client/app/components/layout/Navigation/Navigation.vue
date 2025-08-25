@@ -21,8 +21,8 @@ const toggleMenu = () => {
 	<header
 		v-if="header"
 		ref="headerRef"
-		class="fixed top-4 left-0 right-0 z-50 w-[80%] max-w-[1000px] px-md mx-auto rounded-xl transition duration-300 bg-clip-padding backdrop-filter backdrop-blur-2xl shadow-xl"
-		:class="[theme === 'dark' ? 'text-light' : 'text-dark']">
+		class="fixed top-4 left-0 right-0 z-50 w-[80%] max-w-[1000px] px-md mx-auto rounded-xl transition duration-300 bg-light/10 bg-clip-padding backdrop-filter backdrop-blur-2xl shadow-xl"
+		:class="[theme === 'dark' ? 'text-light ' : 'text-dark']">
 		<nav class="flex justify-between items-center" aria-label="main navigation">
 			<NuxtLink to="/" aria-label="Home" class="min-w-[136px]">
 				<NuxtImg
@@ -36,11 +36,14 @@ const toggleMenu = () => {
 			</NuxtLink>
 
 			<NavigationLinks />
-			<BurgerMenu :is-menu-open="isMenuOpen" @toggle="toggleMenu" />
+			<BurgerMenu :is-menu-open="isMenuOpen" @toggle="toggleMenu" :theme />
 		</nav>
 	</header>
 
 	<Teleport to="body">
-		<MobilMenu :is-menu-open="isMenuOpen" @close="isMenuOpen = false" />
+		<MobilMenu
+			:is-menu-open="isMenuOpen"
+			@close="isMenuOpen = false"
+			:class="[theme === 'dark' ? 'text-light' : 'text-dark']" />
 	</Teleport>
 </template>

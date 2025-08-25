@@ -1,6 +1,7 @@
 <script setup lang="ts">
 defineProps<{
 	isMenuOpen: boolean;
+	theme: Theme;
 }>();
 
 const emit = defineEmits(["toggle"]);
@@ -15,18 +16,21 @@ const emit = defineEmits(["toggle"]);
 		@click="emit('toggle')">
 		<span
 			:class="[
-				'block h-[3px] w-8 bg-light rounded transition-transform duration-300 ease-in-out',
+				'block h-[3px] w-8 rounded transition duration-300 ease-in-out',
 				isMenuOpen ? 'rotate-45 translate-y-1' : '',
+				theme === 'dark' ? 'bg-light' : 'bg-dark',
 			]" />
 		<span
 			:class="[
-				'block h-[3px] w-8 bg-light rounded transition-all duration-300 ease-in-out',
+				'block h-[3px] w-8 rounded transition duration-300 ease-in-out',
 				isMenuOpen ? 'opacity-0 scale-0' : '',
+				theme === 'dark' ? 'bg-light' : 'bg-dark',
 			]" />
 		<span
 			:class="[
-				'block h-[3px] w-8 bg-light rounded transition-transform duration-300 ease-in-out',
+				'block h-[3px] w-8 rounded transition duration-300 ease-in-out',
 				isMenuOpen ? '-rotate-45 -translate-y-2.5' : '',
+				theme === 'dark' ? 'bg-light' : 'bg-dark',
 			]" />
 	</button>
 </template>

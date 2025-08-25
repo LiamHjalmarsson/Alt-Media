@@ -26,7 +26,7 @@ const emit = defineEmits(["close-menu"]);
 			id="mobile-menu"
 			class="fixed top-24 lg:top-32 left-0 md:-left-14 w-full flex justify-center md:justify-end z-40 lg:hidden">
 			<ul
-				class="w-[90%] md:w-fit rounded-2xl text-white flex flex-col transform-origin-top p-lg gap-md border border-neutral/5 bg-white/10 backdrop-blur-2xl">
+				class="w-[90%] md:w-fit rounded-2xl flex flex-col transform-origin-top p-lg gap-md bg-light/10 bg-clip-padding backdrop-filter backdrop-blur-2xl shadow-xl">
 				<li v-for="link in header?.links" :key="link.title" class="transition-opacity duration-500">
 					<NuxtLink
 						:to="link.url"
