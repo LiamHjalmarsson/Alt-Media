@@ -53,7 +53,7 @@ export interface BlockFullSection extends Struct.ComponentSchema {
   attributes: {
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Schema.Attribute.Text;
-    link: Schema.Attribute.Component<'ui.button', false>;
+    link: Schema.Attribute.Component<'ui.link', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -69,6 +69,7 @@ export interface BlockHero extends Struct.ComponentSchema {
     cover: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     description: Schema.Attribute.String;
     form: Schema.Attribute.Component<'form.form', false>;
+    links: Schema.Attribute.Component<'ui.link', true>;
     title: Schema.Attribute.String;
   };
 }
@@ -82,6 +83,7 @@ export interface BlockInfo extends Struct.ComponentSchema {
     align_content: Schema.Attribute.Enumeration<['left', 'right', 'center']>;
     button: Schema.Attribute.Component<'ui.button', false>;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.Component<'ui.link', false>;
     title: Schema.Attribute.String;
   };
 }
@@ -92,8 +94,9 @@ export interface BlockList extends Struct.ComponentSchema {
     displayName: 'List';
   };
   attributes: {
-    button: Schema.Attribute.Component<'ui.button', true>;
+    button: Schema.Attribute.Component<'ui.button', false>;
     items: Schema.Attribute.Component<'ui.card', true>;
+    link: Schema.Attribute.Component<'ui.link', false>;
     title: Schema.Attribute.String;
   };
 }

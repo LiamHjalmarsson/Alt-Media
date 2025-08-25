@@ -30,6 +30,11 @@
       "type": "component",
       "component": "ui.button",
       "repeatable": false
+    },
+    "link": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": false
     }
   },
   "config": {}

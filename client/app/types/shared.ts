@@ -35,6 +35,13 @@ export interface ListItem {
 	description: string;
 }
 
+export interface Solution {
+	id: number;
+	title: string;
+	description: string;
+	icon: Icon;
+}
+
 export interface Input {
 	label: string;
 	name: string;

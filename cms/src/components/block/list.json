@@ -11,12 +11,17 @@
     "button": {
       "type": "component",
       "component": "ui.button",
-      "repeatable": true
+      "repeatable": false
     },
     "items": {
       "type": "component",
       "component": "ui.card",
       "repeatable": true
+    },
+    "link": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": false
     }
   },
   "config": {}

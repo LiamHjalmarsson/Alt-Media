@@ -31,13 +31,13 @@ const { footer } = storeToRefs(globalStore);
 					v-for="link in footer?.footer_column"
 					:key="link.title"
 					class="flex flex-col font-heading max-lg:text-center">
-					<NuxtLink :to="link.url" class="text-heading-xs lg:text-heading-sm font-semibold">
+					<NuxtLink :to="link.url" class="text-heading-2xs lg:text-headingxs font-semibold">
 						{{ link.title }}
 					</NuxtLink>
 
 					<ul v-if="link.links?.length" class="mt-sm">
 						<li v-for="subLink in link.links" :key="subLink.title" class="mb-sm">
-							<NuxtLink :to="subLink.url" class="md:text-md lg:text-lg">
+							<NuxtLink :to="subLink.url" class="md:text-sm lg:text-md">
 								{{ subLink.title }}
 							</NuxtLink>
 						</li>

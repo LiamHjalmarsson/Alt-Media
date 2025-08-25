@@ -40,6 +40,9 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 						buttons: {
 							fields: ["label", "url", "type", "variant"],
 						},
+						links: {
+							fields: ["label", "url", "variant"],
+						},
 					},
 				},
 				blocks: {
@@ -49,6 +52,9 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 							populate: {
 								button: {
 									fields: ["label", "url", "type", "variant"],
+								},
+								link: {
+									fields: ["label", "url", "variant"],
 								},
 								items: {
 									fields: ["title", "description"],
@@ -75,6 +81,9 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 								button: {
 									fields: ["label", "url", "type", "variant"],
 								},
+								link: {
+									fields: ["label", "url", "variant"],
+								},
 							},
 						},
 						"block.full-section": {
@@ -86,7 +95,7 @@ export default factories.createCoreController("api::home-page.home-page", ({ str
 									},
 								},
 								link: {
-									fields: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "variant"],
 								},
 							},
 						},

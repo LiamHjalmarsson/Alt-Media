@@ -39,7 +39,7 @@ const componentMap: Record<string, any> = {
 			<div
 				class="absolute -top-6 left-1/2 w-[600px] h-[600px] -translate-x-1/2 rounded-full opacity-50 blur-3xl gradient-ring"></div>
 
-			<FormCard class="sm:w-[480px] max-lg:hidden" v-if="page.hero.form">
+			<FormCard v-if="page.hero.form" class="sm:w-[480px] max-lg:hidden">
 				<h3 class="text-heading-md text-light font-bold">{{ page.hero.form.title }}</h3>
 
 				<p class="my-md text-md text-light-gray">

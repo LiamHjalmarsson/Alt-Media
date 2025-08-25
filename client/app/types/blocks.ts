@@ -1,7 +1,7 @@
 import type { Article } from "./collections/articles";
 import type { Project } from "./collections/projects";
 import type { Service } from "./collections/services";
-import type { AlignContent, Button, Form, Icon, Image, Link, ListItem } from "./shared";
+import type { AlignContent, Button, Form, Icon, Image, Link, ListItem, Solution } from "./shared";
 
 export interface BaseBlock {
 	id: number;
@@ -12,6 +12,7 @@ export interface InfoBlock extends BaseBlock {
 	__component: "block.info";
 	align_content: AlignContent;
 	button: Button;
+	link: Link;
 	image: Image;
 }
 
@@ -20,15 +21,9 @@ export interface HeroBlock extends BaseBlock {
 	colored_title: string;
 	description: string;
 	buttons: Button[];
+	links: Link[];
 	cover: Image;
 	form?: Form;
-}
-
-export interface Solution {
-	id: number;
-	title: string;
-	description: string;
-	icon: Icon;
 }
 
 export interface SolutionBlock extends BaseBlock {
@@ -38,30 +33,31 @@ export interface SolutionBlock extends BaseBlock {
 
 export interface FeaturedArticleBlock extends BaseBlock {
 	__component: "block.featured";
-	articles?: Article[] | [];
+	articles: Article[];
 }
 
 export interface FeaturedServiceBlock extends BaseBlock {
 	__component: "block.featured";
-	services?: Service[] | [];
+	services: Service[];
 }
 
 export interface FeaturedProjectBlock extends BaseBlock {
 	__component: "block.featured";
-	projects?: Project[] | [];
+	projects: Project[];
 	link: Link;
 }
 
 export interface ListBlock extends BaseBlock {
 	__component: "block.featured";
 	items: ListItem[];
-	button: Button[];
+	button: Button;
+	link: Link;
 }
 
 export interface FullSectionBlock extends BaseBlock {
 	__component: "block.full-section";
 	cover: Image;
-	link: Button;
+	link: Link;
 	description: string;
 }
 

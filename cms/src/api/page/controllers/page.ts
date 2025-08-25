@@ -30,6 +30,9 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 								buttons: {
 									fields: ["label", "url", "type", "variant"],
 								},
+								links: {
+									fields: ["label", "url", "variant"],
+								},
 							},
 						},
 						"block.list": {
@@ -37,6 +40,9 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 								fields: ["id", "title"],
 								button: {
 									fields: ["label", "url", "type", "variant"],
+								},
+								link: {
+									fields: ["label", "url", "variant"],
 								},
 								items: {
 									fields: ["title", "description"],
@@ -52,7 +58,10 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 									},
 								},
 								button: {
-									fields: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "variant"],
+								},
+								link: {
+									fields: ["label", "url", "variant"],
 								},
 							},
 						},
@@ -65,7 +74,7 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 									},
 								},
 								link: {
-									fields: ["label", "url", "type", "variant"],
+									fields: ["label", "url", "variant"],
 								},
 							},
 						},
@@ -116,6 +125,9 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 									populate: {
 										cover: {
 											fields: ["formats", "name", "width", "height", "url", "provider"],
+										},
+										link: {
+											fields: ["label", "url", "variant"],
 										},
 									},
 								},

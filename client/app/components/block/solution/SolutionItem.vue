@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Solution } from "~/types/blocks";
+import type { Solution } from "~/types/shared";
 
 const { solution } = defineProps<{ solution: Solution }>();
 </script>

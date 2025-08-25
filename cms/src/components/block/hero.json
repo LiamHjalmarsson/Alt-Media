@@ -33,6 +33,11 @@
       "type": "component",
       "component": "form.form",
       "repeatable": false
+    },
+    "links": {
+      "type": "component",
+      "component": "ui.link",
+      "repeatable": true
     }
   },
   "config": {}
