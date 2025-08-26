@@ -56,6 +56,8 @@ export default factories.createCoreController("api::article.article", ({ strapi 
 	},
 
 	async find(ctx) {
+		await this.validateQuery(ctx);
+
 		const sanitizedQuery = await this.sanitizeQuery(ctx);
 
 		const { results, pagination } = await strapi.service("api::article.article").find({
@@ -70,10 +72,6 @@ export default factories.createCoreController("api::article.article", ({ strapi 
 				},
 			},
 		});
-
-		if (!results || results.length === 0) {
-			return ctx.notFound("Articles not found");
-		}
 
 		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
 

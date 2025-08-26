@@ -78,6 +78,7 @@ export default factories.createCoreController("api::project.project", ({ strapi 
 		});
 
 		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
+
 		return this.transformResponse(sanitizedEntity, { pagination });
 	},
 }));

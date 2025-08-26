@@ -10,7 +10,7 @@ const slug = computed(() => `/articles/${article.slug}`);
 	<NuxtLink
 		:to="slug"
 		:aria-label="`Läs artikel: ${article.title}`"
-		class="flex flex-col overflow-hidden rounded-2xl bg-light group transition duration-300 shadow-md hover:shadow-lg hover:bg-dark-light">
+		class="flex flex-col overflow-hidden rounded-2xl bg-light group transition duration-300 shadow-md hover:shadow-lg hover:bg-dark-light hover:scale-105">
 		<div class="h-56 overflow-hidden">
 			<NuxtImg
 				:src="article.cover.url"
