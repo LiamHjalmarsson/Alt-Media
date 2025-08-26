@@ -28,13 +28,19 @@
         "audios"
       ]
     },
-    "content": {
-      "type": "richtext"
-    },
     "services": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "block.info"
+      ]
+    },
+    "content": {
+      "type": "blocks"
     }
   }
 }

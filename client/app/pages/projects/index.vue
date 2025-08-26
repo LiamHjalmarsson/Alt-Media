@@ -28,7 +28,7 @@ function onFilterCategory(title: string) {
 </script>
 
 <template>
-	<Section data-header-color="light">
+	<Section>
 		<Container>
 			<Heading title="Våra projekt" class="mt-2xl" align-content="center" />
 			<Filter :services="services" :selected="selected" @filterByService="onFilterCategory" />
@@ -36,18 +36,29 @@ function onFilterCategory(title: string) {
 				<NuxtLink
 					v-for="project in projects"
 					:key="project.id"
-					:to="`/projekt/${project.slug}`"
+					:to="`/projects/${project.slug}`"
 					class="flex flex-col overflow-hidden bg-light group transition duration-300">
-					<div class="h-56 overflow-hidden">
-						<NuxtImg :src="project.cover.url" class="rounded-2xl object-cover h-full w-full" />
+					<div class="h-36 overflow-hidden rounded-lg">
+						<NuxtImg
+							:src="project.cover.url"
+							class="rounded-lg object-cover h-full w-full group-hover:scale-110 duration-300" />
 					</div>
-					<div class="p-lg flex w-full justify-between items-center">
-						<h3 class="font-semibold tracking-wide leading-relaxed">{{ project.title }}</h3>
-						<div class="flex flex-wrap space-x-xs">
-							<span v-for="service in project.services" :key="service.id" class="text-dark-gray text-sm">
-								{{ service.title }}
-							</span>
+					<div class="p-sm">
+						<div class="flex w-full justify-between items-center">
+							<h3
+								class="font-semibold tracking-wide leading-relaxed group-hover:text-primary duration-300">
+								{{ project.title }}
+							</h3>
+							<div class="flex flex-wrap space-x-xs">
+								<span
+									v-for="service in project.services"
+									:key="service.id"
+									class="text-dark-gray text-sm">
+									{{ service.title }}
+								</span>
+							</div>
 						</div>
+						<div class="text-sm text-dark-gray">description added ?</div>
 					</div>
 				</NuxtLink>
 			</Grid>
