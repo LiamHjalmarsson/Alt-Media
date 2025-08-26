@@ -56,28 +56,29 @@ export default factories.createCoreController("api::project.project", ({ strapi 
 	},
 
 	async find(ctx) {
+		await this.validateQuery(ctx);
+
 		const sanitizedQuery = await this.sanitizeQuery(ctx);
 
 		const { results, pagination } = await strapi.service("api::project.project").find({
 			...sanitizedQuery,
 			fields: ["id", "title", "slug"],
 			populate: {
-				cover: {
-					fields: ["formats", "name", "width", "height", "url", "provider"],
-				},
+				cover: { fields: ["formats", "name", "width", "height", "url", "provider"] },
 				services: {
 					fields: ["title", "slug"],
+					populate: {
+						icon: {
+							fields: ["name", "has_image"],
+							populate: { image: { fields: ["formats", "name", "width", "height", "url", "provider"] } },
+						},
+					},
 				},
 			},
 		});
 
-		if (!results || results.length === 0) {
-			return ctx.notFound("Articles not found");
-		}
-
 		const sanitizedEntity = await this.sanitizeOutput(results, ctx);
-
-		return this.transformResponse(sanitizedEntity);
+		return this.transformResponse(sanitizedEntity, { pagination });
 	},
 }));
 

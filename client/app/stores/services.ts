@@ -9,6 +9,10 @@ export const useServiceStore = defineStore("services", () => {
 	const { find, findOne } = useStrapi();
 
 	async function fetchServices() {
+		if (services.value.length > 0) {
+			return services.value;
+		}
+
 		const result: Strapi5ResponseMany<Service> = await find<Service>("services");
 
 		services.value = result.data || [];
