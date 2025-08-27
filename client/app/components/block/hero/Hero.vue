@@ -5,7 +5,7 @@ const { block } = defineProps<{ block: HeroBlock }>();
 </script>
 
 <template>
-	<Section class="bg-dark text-light overflow-hidden relative">
+	<Section class="bg-dark text-light overflow-hidden relative hero">
 		<Container class="flex items-center">
 			<div class="flex w-full items-center lg:space-x-2xl">
 				<div class="text-center md:text-left space-y-xl max-w-3xl lg:pr-2xl">

@@ -8,8 +8,16 @@ export const useServiceStore = defineStore("services", () => {
 
 	const { find, findOne } = useStrapi();
 
-	async function fetchServices() {
-		const result: Strapi5ResponseMany<Service> = await find<Service>("services");
+	async function fetchServices(title?: string | null) {
+		const params: any = {};
+
+		if (title) {
+			params.filters = {
+				title: { $eqi: title },
+			};
+		}
+
+		const result: Strapi5ResponseMany<Service> = await find<Service>("services", params);
 
 		services.value = result.data || [];
 

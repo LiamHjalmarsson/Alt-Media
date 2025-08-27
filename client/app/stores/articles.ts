@@ -19,10 +19,6 @@ export const useArticleStore = defineStore("articles", () => {
 			};
 		}
 
-		console.log(service);
-
-		console.log(params);
-
 		const result: Strapi5ResponseMany<Article> = await find<Article>("articles", params);
 
 		articles.value = result.data || [];
