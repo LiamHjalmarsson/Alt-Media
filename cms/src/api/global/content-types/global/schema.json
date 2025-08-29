@@ -36,6 +36,17 @@
       "type": "component",
       "component": "seo.seo",
       "repeatable": false
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "social_medias": {
+      "type": "component",
+      "component": "global.social-media",
+      "repeatable": true
     }
   }
 }

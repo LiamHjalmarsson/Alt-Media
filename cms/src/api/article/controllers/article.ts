@@ -21,7 +21,7 @@ export default factories.createCoreController("api::article.article", ({ strapi 
 					fields: ["formats", "name", "width", "height", "url", "provider"],
 				},
 				services: {
-					fields: ["title", "slug", "description", "content"],
+					fields: ["title", "slug", "description"],
 					populate: {
 						sub_services: {
 							fields: ["title", "content"],

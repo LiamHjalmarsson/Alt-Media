@@ -7,7 +7,7 @@ import { factories } from "@strapi/strapi";
 export default factories.createCoreController("api::global.global", ({ strapi }) => ({
 	async find(ctx) {
 		const entity = await strapi.service("api::global.global").find({
-			fields: ["id", "site_name"],
+			fields: ["id", "site_name", "email", "phone"],
 			populate: {
 				favicon: {
 					fields: ["formats", "name", "width", "height", "url", "provider"],
@@ -46,12 +46,16 @@ export default factories.createCoreController("api::global.global", ({ strapi })
 						},
 					},
 				},
+				social_medias: {
+					fields: ["icon_name", "url"],
+					populate: {
+						icon: {
+							fields: ["formats", "name", "width", "height", "url", "provider"],
+						},
+					},
+				},
 			},
 		});
-
-		if (!entity) {
-			return ctx.notFound("Articles not found");
-		}
 
 		const sanitizedEntity = await this.sanitizeOutput(entity, ctx);
 

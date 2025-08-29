@@ -215,6 +215,18 @@ export interface GlobalNavigationItem extends Struct.ComponentSchema {
   };
 }
 
+export interface GlobalSocialMedia extends Struct.ComponentSchema {
+  collectionName: 'components_global_social_medias';
+  info: {
+    displayName: 'Social Media';
+  };
+  attributes: {
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    icon_name: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Struct.ComponentSchema {
   collectionName: 'components_seo_seos';
   info: {
@@ -346,6 +358,7 @@ declare module '@strapi/strapi' {
       'global.footer-column': GlobalFooterColumn;
       'global.navigaion': GlobalNavigaion;
       'global.navigation-item': GlobalNavigationItem;
+      'global.social-media': GlobalSocialMedia;
       'seo.seo': SeoSeo;
       'ui.button': UiButton;
       'ui.card': UiCard;

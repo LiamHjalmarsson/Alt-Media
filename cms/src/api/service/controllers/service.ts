@@ -16,7 +16,7 @@ export default factories.createCoreController("api::service.service", ({ strapi 
 			...sanitizedQuery,
 			filters: { slug: id },
 			where: { slug: id },
-			fields: ["id", "title", "slug", "content", "description"],
+			fields: ["id", "title", "slug", "description"],
 			populate: {
 				sub_services: {
 					fields: ["title", "content"],
@@ -55,7 +55,7 @@ export default factories.createCoreController("api::service.service", ({ strapi 
 
 		const { results, pagination } = await strapi.service("api::service.service").find({
 			...sanitizedQuery,
-			fields: ["id", "title", "slug", "description", "content"],
+			fields: ["id", "title", "slug", "description"],
 			populate: {
 				sub_services: {
 					fields: ["title", "content"],
