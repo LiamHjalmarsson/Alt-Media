@@ -1,10 +1,11 @@
 import type { Icon } from "../shared";
 import type { Tag } from "./tag";
+import type { BlockNode } from "#strapi-blocks-renderer/types";
 
 export interface SubService {
 	id: number;
 	title: string;
-	content: string;
+	content: BlockNode[];
 	tags: Tag[];
 }
 
@@ -13,7 +14,6 @@ export interface Service {
 	title: string;
 	slug: string;
 	description: string;
-	content: string;
 	icon: Icon;
 	sub_services: SubService[];
 }

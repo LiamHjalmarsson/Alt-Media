@@ -11,8 +11,7 @@ const slug = computed(() => `/services/${service.slug}`);
 		class="h-full relative shadow-lg rounded-2xl group overflow-hidden duration-300 lg:hover:shadow-2xl lg:hover:-translate-y-xs">
 		<NuxtLink :to="slug" class="w-full h-full" :aria-label="`Läs mer om ${service.title}`">
 			<div class="flex flex-col justify-between relative z-10 p-lg lg:p-xl h-full">
-				<IconWrapper
-					class="border border-primary bg-primary-disabled/50 shadow-lg shadow-primary/40 p-xs w-10 md:w-12 h-10 md:h-12">
+				<IconWrapper class="border-primary bg-primary-disabled/50 shadow-primary/40">
 					<NuxtImg v-if="service.icon.has_image" :src="service.icon.image?.url" />
 					<Icon v-else :name="service.icon.name" size="40" class="text-primary" />
 				</IconWrapper>

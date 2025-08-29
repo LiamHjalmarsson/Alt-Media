@@ -13,7 +13,7 @@ function onFilterHandler(title: string) {
 </script>
 
 <template>
-	<Container class="flex justify-center items-center space-x-2xl" size="sm">
+	<Container class="flex justify-between items-center space-x-2xl" size="sm">
 		<button
 			v-for="service in services"
 			:key="service.id"
@@ -22,12 +22,12 @@ function onFilterHandler(title: string) {
 			:aria-selected="selected === service.title"
 			class="flex justify-center items-center flex-col w-fit group cursor-pointer">
 			<IconWrapper
-				class="border border-primary bg-primary-disabled/50 shadow-lg shadow-primary/40 p-sm w-14 h-14 transition group-hover:bg-primary group-hover:-translate-y-0.5 group-hover:scale-110 duration-300"
+				class="border-primary bg-primary-disabled/50 shadow-primary/40 transition group-hover:bg-primary group-hover:-translate-y-0.5 group-hover:scale-110 duration-300"
 				:class="selected === service.title ? 'scale-110' : ''">
 				<Icon
 					v-if="service.icon?.name"
 					:name="service.icon.name"
-					size="48"
+					size="40"
 					class="text-primary group-hover:text-light transition" />
 			</IconWrapper>
 			<p class="mt-xs text-primary font-semibold first-letter:capitalize">

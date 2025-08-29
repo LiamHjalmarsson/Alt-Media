@@ -42,6 +42,7 @@ useSeoMeta({
 			<slot />
 		</main>
 
+		<Chat />
 		<Footer />
 	</div>
 </template>

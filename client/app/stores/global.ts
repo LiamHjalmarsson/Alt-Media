@@ -20,5 +20,7 @@ export const useGlobalStore = defineStore("global", () => {
 
 	const seo = computed(() => globalSettings.value?.seo);
 
-	return { globalSettings, header, footer, seo, fetchGlobal };
+	const socialMedias = computed(() => globalSettings.value?.social_medias);
+
+	return { globalSettings, header, footer, seo, socialMedias, fetchGlobal };
 });

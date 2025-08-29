@@ -33,11 +33,20 @@ export interface Seo {
 	meta_image: Image;
 }
 
+export interface SocialMedia {
+	url: string;
+	icon_name: string;
+	icon: Image;
+}
+
 export interface Global {
 	id: number;
 	site_name: string;
+	email: string;
+	phone: string;
 	favicon: Image;
 	navigation: Navigation;
 	footer: Footer;
 	seo: Seo;
+	social_medias: SocialMedia[];
 }

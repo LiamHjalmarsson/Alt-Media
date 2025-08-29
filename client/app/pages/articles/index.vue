@@ -27,7 +27,7 @@ function onFilterCategory(title: string) {
 </script>
 
 <template>
-	<Section data-header-color="light">
+	<Section>
 		<Container>
 			<Heading title="Våra Artiklar" align-content="center" class="mt-2xl" />
 			<Filter :services="services" :selected="selected" @filterByService="onFilterCategory" />

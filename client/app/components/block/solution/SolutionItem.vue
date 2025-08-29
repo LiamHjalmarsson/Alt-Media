@@ -5,7 +5,7 @@ const { solution } = defineProps<{ solution: Solution }>();
 </script>
 
 <template>
-	<Card>
+	<div class="w-full rounded-2xl p-lg border border-light/10 shadow-2xl">
 		<div class="text-center h-full flex flex-col justify-between">
 			<Icon v-if="solution.icon.name" :name="solution.icon.name" size="100" class="mx-auto" />
 			<div class="my-lg">
@@ -18,5 +18,5 @@ const { solution } = defineProps<{ solution: Solution }>();
 			</div>
 			<Button variant="ghost" :aria-label="`Läs mer om ${solution.title}`" class="text-sm"> Läs mer </Button>
 		</div>
-	</Card>
+	</div>
 </template>

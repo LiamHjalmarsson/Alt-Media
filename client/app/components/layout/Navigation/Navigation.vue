@@ -3,9 +3,11 @@ import { ref } from "vue";
 import { storeToRefs } from "pinia";
 
 const globalStore = useGlobalStore();
+
 const { header } = storeToRefs(globalStore);
 
 const isMenuOpen = ref(false);
+
 const headerRef = ref<HTMLElement | null>(null);
 
 const { theme } = useAutoHeaderContrast(headerRef);
@@ -19,23 +21,27 @@ function toggleMenu() {
 	<header
 		v-if="header"
 		ref="headerRef"
-		class="fixed top-4 left-0 right-0 z-50 w-[80%] max-w-[1000px] px-md mx-auto rounded-xl bg-light/10 bg-clip-padding backdrop-filter backdrop-blur-2xl shadow-xl"
+		class="fixed p-lg z-50 w-full flex justify-center items-center"
 		:class="theme === 'dark' ? 'text-light' : 'text-dark'">
-		<nav class="flex items-center justify-between" aria-label="main navigation">
-			<NuxtLink to="/" aria-label="Home" class="min-w-[136px]">
-				<NuxtImg
-					:src="header?.logo.url"
-					width="120"
-					height="80"
-					format="webp"
-					quality="80"
-					class="h-16 w-auto"
-					alt="Site logo" />
-			</NuxtLink>
+		<div
+			class="w-[80%] max-w-[1000px] px-md rounded-xl bg-light/10 bg-clip-padding backdrop-filter backdrop-blur-2xl shadow-xl">
+			<nav class="flex items-center justify-between" aria-label="main navigation">
+				<NuxtLink to="/" aria-label="Home">
+					<NuxtImg
+						:src="header?.logo.url"
+						width="120"
+						height="80"
+						format="webp"
+						quality="80"
+						class="h-16 w-auto"
+						alt="Site logo" />
+				</NuxtLink>
 
-			<NavigationLinks />
-			<BurgerMenu :is-menu-open="isMenuOpen" @toggle="toggleMenu" :theme />
-		</nav>
+				<NavigationLinks />
+
+				<BurgerMenu :is-menu-open="isMenuOpen" @toggle="toggleMenu" :theme />
+			</nav>
+		</div>
 	</header>
 
 	<Teleport to="body">

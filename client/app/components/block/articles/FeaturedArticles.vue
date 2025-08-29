@@ -9,6 +9,7 @@ defineProps<{ block: FeaturedArticleBlock }>();
 		<Container>
 			<div class="flex justify-between items-center mb-sm md:mb-md lg:mb-lg xl:mb-xl">
 				<Heading :title="block.title" />
+
 				<ButtonLink variant="ghost" to="/articles">
 					Alla Artiklar <Icon name="material-symbols:arrow-forward" />
 				</ButtonLink>
