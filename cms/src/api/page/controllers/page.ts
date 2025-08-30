@@ -78,61 +78,6 @@ export default factories.createCoreController("api::page.page", ({ strapi }) => 
 								},
 							},
 						},
-						"block.faq": {
-							populate: {
-								fields: ["id", "title"],
-								items: {
-									fields: ["title", "description"],
-								},
-							},
-						},
-						"block.featured-services": {
-							populate: {
-								fields: ["id", "title"],
-								services: {
-									fields: ["title", "slug", "description"],
-									populate: {
-										icon: {
-											fields: ["name", "has_image"],
-											populate: {
-												image: {
-													fields: ["formats", "name", "width", "height", "url", "provider"],
-												},
-											},
-										},
-									},
-								},
-							},
-						},
-						"block.featured-articles": {
-							populate: {
-								fields: ["id", "title"],
-								articles: {
-									fields: ["title", "slug", "description", "date"],
-									populate: {
-										cover: {
-											fields: ["formats", "name", "width", "height", "url", "provider"],
-										},
-									},
-								},
-							},
-						},
-						"block.featured-projects": {
-							populate: {
-								fields: ["id", "title"],
-								projects: {
-									fields: ["title", "slug"],
-									populate: {
-										cover: {
-											fields: ["formats", "name", "width", "height", "url", "provider"],
-										},
-										link: {
-											fields: ["label", "url", "variant"],
-										},
-									},
-								},
-							},
-						},
 					},
 				},
 			},

@@ -12,13 +12,13 @@ import type { HomePage } from "~/types/collections/pages";
 
 const { findOne } = useStrapi();
 
-const { data: pageResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage>>(
+const { data: dataResponse } = await useAsyncData<Strapi5ResponseSingle<HomePage>>(
 	"home-page",
 	() => findOne("home-page"),
 	{ server: true }
 );
 
-const page = computed(() => pageResponse.value?.data ?? null);
+const page = computed(() => dataResponse.value?.data ?? null);
 
 const blocks = computed<Blocks[]>(() => page?.value?.blocks ?? []);
 

@@ -8,12 +8,6 @@ const route = useRoute();
 await useAsyncData("article", () => articleStore.fetchArticle(route.params.slug as string), { server: true });
 
 const { currentArticle } = storeToRefs(articleStore);
-
-const blockNodes = computed<BlockNode[]>(() => {
-	const description = currentArticle.value?.description;
-
-	return Array.isArray(description) ? (description as BlockNode[]) : [];
-});
 </script>
 
 <template>
@@ -42,11 +36,7 @@ const blockNodes = computed<BlockNode[]>(() => {
 	<Section>
 		<Container>
 			<Grid class="md:grid-cols-3">
-				<div class="md:col-span-2 pr-2xl">
-					<h2 class="text-heading-xl font-bold mb-sm">Om projektet</h2>
-
-					<StrapiBlocksText :nodes="blockNodes" />
-				</div>
+				<div class="md:col-span-2 pr-2xl"></div>
 
 				<aside>
 					<h3 class="text-heading-lg font-bold mb-sm mt-xs">Vad vi gjort</h3>

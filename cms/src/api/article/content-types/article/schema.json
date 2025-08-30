@@ -27,9 +27,6 @@
         "files"
       ]
     },
-    "description": {
-      "type": "text"
-    },
     "content": {
       "type": "blocks"
     },
